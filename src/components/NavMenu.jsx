@@ -39,11 +39,17 @@ const NavMenu = () => {
                 Home
             </Link>
             <Link
+                to="/analytics"
+                className={`hover:text-[#0D0D0D] transition-all duration-200 ease-out ${isActive('/analytics') ? 'text-[#0D0D0D]' : ''}`}
+            >
+                Analytics
+            </Link>
+            {/* <Link
                 to="/me"
                 className={`hover:text-[#0D0D0D] transition-all duration-200 ease-out ${isActive('/me') ? 'text-[#0D0D0D]' : ''}`}
             >
                 My Profile
-            </Link>
+            </Link> */}
             <button
                 onClick={handleLogout}
                 className="text-[#727372] hover:text-red-700 cursor-pointer transition-all duration-200 ease-out"

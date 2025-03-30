@@ -39,10 +39,11 @@ const Hello = () => {
 
     return (
         <h3 className='text-7xl text-[#262626]'>
-            {location.pathname != '/expenses' && 'Hello,'}
+            {location.pathname != '/expenses' && location.pathname != '/me' && 'Hello,'}
+            {location.pathname === '/me' && 'Your'}
             {location.pathname === '/expenses' && 'All Your'} <br />
             <span className='font-semibold text-[#0D0D0D]'>
-                {location.pathname != '/expenses' && fullName.split('').map((letter, index) => (
+                {location.pathname != '/expenses' && location.pathname != '/me' && fullName.split('').map((letter, index) => (
                     <span
                         key={index}
                         className='inline-block hover:transform hover:translate-y-[-8px] transition-all duration-200 ease-out cursor-default'
@@ -51,6 +52,14 @@ const Hello = () => {
                     </span>
                 ))}
                 {location.pathname === '/expenses' && 'Expenses'.split('').map((letter, index) => (
+                    <span
+                        key={index}
+                        className='inline-block hover:transform hover:translate-y-[-8px] transition-all duration-200 ease-out cursor-default'
+                    >
+                        {letter}
+                    </span>
+                ))}
+                {location.pathname === '/me' && 'Profile'.split('').map((letter, index) => (
                     <span
                         key={index}
                         className='inline-block hover:transform hover:translate-y-[-8px] transition-all duration-200 ease-out cursor-default'

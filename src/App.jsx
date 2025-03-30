@@ -6,6 +6,7 @@ import Login from './pages/auth/Login';
 import NotFound from './pages/error/NotFound';
 import Unauthorized from './pages/error/Unauthorized';
 import Expenses from './pages/Expenses';
+import MyProfile from './pages/MyProfile';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/me" element={<MyProfile />} />
           <Route exact path="/expenses" element={<Expenses />} />
 
           <Route path="/unauthorized" element={<Unauthorized />} />
