@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Hello = () => {
     const [fullName, setFullName] = useState('');
+    const location = useLocation();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,9 +39,18 @@ const Hello = () => {
 
     return (
         <h3 className='text-7xl text-[#262626]'>
-            Hello, <br />
+            {location.pathname != '/expenses' && 'Hello,'}
+            {location.pathname === '/expenses' && 'All Your'} <br />
             <span className='font-semibold text-[#0D0D0D]'>
-                {fullName.split('').map((letter, index) => (
+                {location.pathname != '/expenses' && fullName.split('').map((letter, index) => (
+                    <span
+                        key={index}
+                        className='inline-block hover:transform hover:translate-y-[-8px] transition-all duration-200 ease-out cursor-default'
+                    >
+                        {letter}
+                    </span>
+                ))}
+                {location.pathname === '/expenses' && 'Expenses'.split('').map((letter, index) => (
                     <span
                         key={index}
                         className='inline-block hover:transform hover:translate-y-[-8px] transition-all duration-200 ease-out cursor-default'
